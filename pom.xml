@@ -22,13 +22,14 @@
     <build>
         <finalName>jomchen-spring-test</finalName>
 
-        <sourceDirectory>/src/main/java</sourceDirectory>
+        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
 
         <resources>
             <resource>
-                <directory>/src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
+                                                              <!-- 指定 build(编译) 后的 resource 存放文件夹，默认是 basedir <targetPath></targetPath> -->
+                <directory>${basedir}/src/main/resources</directory>    <!-- 指定资源文件的位置，默认是 ${basedir}/target} -->
+                <filtering>true</filtering>                             <!-- 是否激活这个资源拦截性质 -->
+                <includes>                                              <!-- 寻找匹配的文件 -->
                     <include>*.properties</include>
                     <include>*.xml</include>
                 </includes>
@@ -42,6 +43,34 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+
+                    <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+                    <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
+                    <webResources>
+                        <resource>
+                            <directory>views</directory>
+                            <targetPath>/</targetPath>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
+                     <warSourceExcludes>
+                        <!-- css/**,images/**,js/**,wap/css/**,wap/images/**,wap/js/** -->
+                         /static/**
+                     </warSourceExcludes>
+                    <!--<ignoreWebxml>false</ignoreWebxml>
+                    <resourceEncoding>UTF-8</resourceEncoding>-->
+                    <!-- <encoding></encoding> -->
                 </configuration>
             </plugin>
         </plugins>
