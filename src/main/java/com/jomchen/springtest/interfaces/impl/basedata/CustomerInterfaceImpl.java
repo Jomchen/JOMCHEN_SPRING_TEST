@@ -1,7 +1,7 @@
-package com.jomchen.springtest.interfaces.impl;
+package com.jomchen.springtest.interfaces.impl.basedata;
 
-import com.jomchen.springtest.entity.Customer;
-import com.jomchen.springtest.interfaces.CustomerInterface;
+import com.jomchen.springtest.entity.basedata.Customer;
+import com.jomchen.springtest.interfaces.basedata.CustomerInterface;
 
 /**
  * create by Jomchen on 2018/1/5

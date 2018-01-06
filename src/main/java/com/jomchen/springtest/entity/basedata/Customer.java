@@ -1,4 +1,4 @@
-package com.jomchen.springtest.entity;
+package com.jomchen.springtest.entity.basedata;
 
 import com.jomchen.springtest.entity.common.BaseEntity;
 
