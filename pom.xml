@@ -50,24 +50,20 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
                 <configuration>
-                    <archive>
-                        <addMavenDescriptor>false</addMavenDescriptor>
-                    </archive>
-
-                    <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
                     <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
-                    <webResources>
+                    <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+                    <!--<webResources>
                         <resource>
                             <directory>views</directory>
                             <targetPath>/</targetPath>
                             <filtering>true</filtering>
                         </resource>
-                    </webResources>
-                     <warSourceExcludes>
-                        <!-- css/**,images/**,js/**,wap/css/**,wap/images/**,wap/js/** -->
-                         /static/**
-                     </warSourceExcludes>
+                    </webResources>-->
+                     <!--<warSourceExcludes>
+                         css/**,images/**,js/**,wap/css/**,wap/images/**,wap/js/**
+                     </warSourceExcludes>-->
                     <!--<ignoreWebxml>false</ignoreWebxml>
                     <resourceEncoding>UTF-8</resourceEncoding>-->
                     <!-- <encoding></encoding> -->
