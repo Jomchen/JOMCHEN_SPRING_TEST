@@ -9,6 +9,21 @@
     <name>jomchen-spring-test Maven Webapp</name>   <!-- 描述项目的名称 -->
     <url>http://maven.apache.org</url>              <!-- 开发团队的网站 -->
 
+    <repositories><!-- 代码库 -->
+        <repository>
+            <id>maven-ali</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
 
     <dependencies>
         <dependency>
@@ -19,19 +34,30 @@
         </dependency>
     </dependencies>
 
+
+
+
     <build>
         <finalName>jomchen-spring-test</finalName>
 
+        <testSourceDirectory>${basedir}/src/test</testSourceDirectory>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
-
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**.*</include>
+                </includes>
+            </testResource>
+        </testResources>
         <resources>
             <resource>
-                                                              <!-- 指定 build(编译) 后的 resource 存放文件夹，默认是 basedir <targetPath></targetPath> -->
+                                                                        <!-- 指定 build(编译) 后的 resource 存放文件夹，默认是 basedir <targetPath></targetPath> -->
                 <directory>${basedir}/src/main/resources</directory>    <!-- 指定资源文件的位置，默认是 ${basedir}/target} -->
                 <filtering>true</filtering>                             <!-- 是否激活这个资源拦截性质 -->
                 <includes>                                              <!-- 寻找匹配的文件 -->
-                    <include>*.properties</include>
-                    <include>*.xml</include>
+                    <include>**.*</include>
                 </includes>
             </resource>
         </resources>
