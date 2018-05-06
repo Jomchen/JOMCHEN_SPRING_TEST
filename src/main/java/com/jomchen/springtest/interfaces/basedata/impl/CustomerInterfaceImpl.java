@@ -1,4 +1,4 @@
-package com.jomchen.springtest.interfaces.impl.basedata;
+package com.jomchen.springtest.interfaces.basedata.impl;
 
 import com.jomchen.springtest.entity.basedata.Customer;
 import com.jomchen.springtest.interfaces.basedata.CustomerInterface;

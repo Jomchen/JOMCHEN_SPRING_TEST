@@ -7,6 +7,6 @@ import com.jomchen.springtest.entity.basedata.Customer;
  */
 public interface CustomerInterface {
 
-    public void printLogForCustomer(Customer customer);
+    void printLogForCustomer(Customer customer);
 
 }
