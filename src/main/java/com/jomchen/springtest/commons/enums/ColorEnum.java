@@ -1,4 +1,4 @@
-package com.jomchen.springtest.commons;
+package com.jomchen.springtest.commons.enums;
 
 import java.util.EnumSet;
 
