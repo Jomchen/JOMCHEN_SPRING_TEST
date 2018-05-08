@@ -1,6 +1,6 @@
 package com.jomchen.springtest.commons.exceptions;
 
-import com.jomchen.springtest.commons.enums.ErrorMessageEnums;
+import com.jomchen.springtest.commons.enums.ErrorMessageEnum;
 
 /**
  * create by Jomchen on 5/6/18
@@ -16,7 +16,7 @@ public class BizException extends RuntimeException {
         this.message = message;
     }
 
-    public BizException(ErrorMessageEnums error) {
+    public BizException(ErrorMessageEnum error) {
         super(error.getName());
         this.code = error.getCode();
         this.message = error.getName();
