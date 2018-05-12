@@ -91,4 +91,15 @@ public class Customer extends BaseEntity {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "cid=" + cid +
+                ", age=" + age +
+                ", cname='" + cname + '\'' +
+                ", address='" + address + '\'' +
+                ", birthday=" + birthday +
+                '}';
+    }
+
 }
