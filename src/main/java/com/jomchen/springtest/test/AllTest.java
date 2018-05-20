@@ -3,6 +3,7 @@ package com.jomchen.springtest.test;
 
 import com.jomchen.springtest.entity.basedata.Customer;
 import com.jomchen.springtest.interfaces.basedata.CustomerService;
+import com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
@@ -21,17 +22,15 @@ public class AllTest {
     public static Logger logger = LoggerFactory.getLogger(AllTest.class);
 
     public static void main(String[] args) {
-        Customer customer = new Customer();
+        /*Customer customer = new Customer();
         customer.setAge(2);
         customer.setAddress("北京");
         customer.setBirthday(new Date());
-        customer.setCname("李刚");
+        customer.setCname("李刚");*/
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-core.xml");
-        CustomerService customerService = (CustomerService)applicationContext.getBean("customerService");
-        logger.error("这个是一个信息:{}", customer.toString());
-        BeanFactory beanFactory = applicationContext;
-        boolean b = beanFactory.containsBean("customerService");
-        logger.warn("到底有没有呢：" + b);
+        Customer customer = applicationContext.getBean("myCustomer", Customer.class);
+        logger.warn("信息为：{}", customer.toString());
+
 
     }
 }

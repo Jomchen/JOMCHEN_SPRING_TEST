@@ -4,7 +4,26 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="customerService" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl">
+    <bean id="customer00" class="com.jomchen.springtest.entity.basedata.Customer">
+        <constructor-arg index="0" type="java.lang.Integer" value="3"/>
+        <constructor-arg index="1" type="java.lang.Integer" value="22"/>
+        <constructor-arg index="2" type="java.lang.String" value="Linux"/>
+        <constructor-arg index="3" type="java.lang.String" value="北京"/>
+        <constructor-arg index="4" type="java.util.Date">
+            <null/>
+        </constructor-arg>
     </bean>
+
+    <!-- 这仅仅是个由工厂返回的实体，这个实体指明了容器的名字和生成这个实体的方法 -->
+    <bean id="staticCustomer" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl"  factory-method="getStaticCustomer"/>
+
+    <!-- 这是一个容器 -->
+    <bean id="customerServiceImpl" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl">
+        <property name="customer" ref="customer00"/>
+    </bean>
+    <!-- 这是仅仅是个实体，指明了生产这个实体的容器名和方法名 -->
+    <bean id="myCustomer" factory-bean="customerServiceImpl" factory-method="getCustomer"/>
+
+    <!-- 学到 7.4.2 -->
 
 </beans>
