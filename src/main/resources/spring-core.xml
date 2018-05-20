@@ -14,6 +14,15 @@
         </constructor-arg>
     </bean>
 
+    <bean id="kongfu00" class="com.jomchen.springtest.entity.basedata.Kongfu">
+        <property name="kid" value="9"/>
+        <property name="name">
+            <idref bean="customer00"/>
+        </property>
+        <property name="level" value="999"/>
+        <property name="founder" ref="customer00"/>
+    </bean>
+
     <!-- 这仅仅是个由工厂返回的实体，这个实体指明了容器的名字和生成这个实体的方法 -->
     <bean id="staticCustomer" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl"  factory-method="getStaticCustomer"/>
 

@@ -11,9 +11,21 @@ import java.util.Objects;
 public class Customer extends BaseEntity {
 
     private Integer cid;
+    /**
+     * 年龄
+     */
     private Integer age;
+    /**
+     * 姓名
+     */
     private String cname;
+    /**
+     * 地址
+     */
     private String address;
+    /**
+     * 生日
+     */
     private Date birthday;
 
     public Customer() {
