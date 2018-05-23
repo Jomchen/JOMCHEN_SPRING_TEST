@@ -3,10 +3,7 @@ package com.jomchen.springtest.interfaces.basedata.impl;
 import com.jomchen.springtest.entity.basedata.Customer;
 import com.jomchen.springtest.interfaces.basedata.CustomerService;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * create by Jomchen on 2018/1/5
@@ -14,6 +11,7 @@ import java.util.Set;
 public class CustomerServiceImpl implements CustomerService {
 
     private static Customer staticCustomer = new Customer(100, 100, "静态之王", "天涯海角", new Date());
+    private Properties properties;
     private Customer customer;
     private Map<String, String> map;
     private List<String> list;
@@ -32,6 +30,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     public static Customer getStaticCustomer() { return staticCustomer; }
     public static void setStaticCustomer(Customer staticCustomer) { CustomerServiceImpl.staticCustomer = staticCustomer; }
+    public Properties getProperties() { return properties; }
+    public void setProperties(Properties properties) { this.properties = properties; }
     public Customer getCustomer() {
         return customer;
     }
