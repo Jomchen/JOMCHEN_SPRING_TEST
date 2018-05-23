@@ -29,7 +29,7 @@ public class AllTest {
         customer.setCname("李刚");*/
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-core.xml");
         Customer customer = applicationContext.getBean("myCustomer", Customer.class);
-        logger.warn("信息为：{}", customer.toString());
+        /*logger.warn("信息为：{}", customer.toString());*/
 
 
     }
