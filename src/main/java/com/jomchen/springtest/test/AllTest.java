@@ -2,6 +2,7 @@ package com.jomchen.springtest.test;
 
 
 import com.jomchen.springtest.entity.basedata.Customer;
+import com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -16,9 +17,7 @@ public class AllTest {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-core.xml");
-        Customer customer = applicationContext.getBean("myCustomer", Customer.class);
-        logger.warn("信息为：{}", customer.toString());
-
-
+        Customer customer = applicationContext.getBean("customer", Customer.class);
+        logger.warn("信息为：{}", customer.getBirthday());
     }
 }

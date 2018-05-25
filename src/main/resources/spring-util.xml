@@ -4,52 +4,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="customer00" class="com.jomchen.springtest.entity.basedata.Customer">
-        <constructor-arg index="0" type="java.lang.Integer" value="1"/>
-        <constructor-arg index="1" type="java.lang.Integer" value="21"/>
-        <constructor-arg index="2" type="java.lang.String" value="customer01"/>
-        <constructor-arg index="3" type="java.lang.String" value="北京01"/>
-        <constructor-arg index="4" type="java.util.Date">
-            <null/>
-        </constructor-arg>
-    </bean>
-
-    <bean id="kongfu00" class="com.jomchen.springtest.entity.basedata.Kongfu">
-        <property name="kid" value="9"/>
-        <property name="name">
-            <idref bean="customer00"/>
-        </property>
-        <property name="level" value="999"/>
-        <property name="founder" ref="customer00"/>
-    </bean>
-
-    <!-- 这是一个容器 -->
-    <bean id="customerServiceImpl" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl">
-        <property name="customer" ref="customer00"/>
-        <property name="properties">
-            <props><prop key="name">Jomchen</prop><prop key="age">18</prop></props>
-        </property>
-        <property name="list">
-            <list>
-                <value>list00</value>
-                <value>list01</value>
-                <value>list02</value>
-            </list>
-        </property>
-        <property name="map">
-            <map>
-                <entry><key><value>map-key00</value></key><value>map-value00</value></entry>
-                <entry><key><value>map-key01</value></key><value>map-value01</value></entry>
-            </map>
-        </property>
-        <property name="set">
-            <set><value>set00</value><value>set01</value></set>
-        </property>
-    </bean>
-
-    <!-- 这仅仅是由静态工厂返回的实体，这个实体指明了容器的名字和生成这个实体的方法 -->
-    <bean id="staticCustomer" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl"  factory-method="getStaticCustomer"/>
-    <!-- 这仅仅是由非静态工厂返回的实体，指明了生产这个实体的容器名和方法名 -->
-    <bean id="myCustomer" factory-bean="customerServiceImpl" factory-method="getCustomer"/>
 
 </beans>
