@@ -2,15 +2,17 @@ package com.jomchen.springtest.interfaces.basedata.impl;
 
 import com.jomchen.springtest.entity.basedata.Customer;
 import com.jomchen.springtest.interfaces.basedata.CustomerService;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 /**
  * create by Jomchen on 2018/1/5
  */
+@Component
 public class CustomerServiceImpl implements CustomerService {
 
-    private static Customer staticCustomer = new Customer(100, 100, "静态之王", "天涯海角", new Date());
+    private static Customer staticCustomer = new Customer(100, 100, "静态之王", "闲静的地方", new Date());
     private Properties properties;
     private Customer customer;
     private Map<String, String> map;
