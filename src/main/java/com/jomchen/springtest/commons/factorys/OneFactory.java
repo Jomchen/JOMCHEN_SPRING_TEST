@@ -1,4 +1,4 @@
-package com.jomchen.springtest.commons;
+package com.jomchen.springtest.commons.factorys;
 
 import com.jomchen.springtest.entity.basedata.Customer;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * create by Jomchen on 2018/5/29
  */
 @Configuration
-public class factorys {
+public class OneFactory {
 
 
     @Bean
