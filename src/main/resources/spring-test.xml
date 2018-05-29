@@ -6,7 +6,7 @@
 
 
     <!-- 自定义练习配置 -->
-    <bean id="customer" class="com.jomchen.springtest.entity.basedata.Customer">
+    <!--<bean id="customer" class="com.jomchen.springtest.entity.basedata.Customer">
         <constructor-arg index="0" type="java.lang.Integer" value="0"/>
         <constructor-arg index="1" type="java.lang.Integer" value="20"/>
         <constructor-arg index="2" type="java.lang.String" value="李寻欢"/>
@@ -33,19 +33,19 @@
         <property name="founder">
             <ref bean="customer"/>
         </property>
-    </bean>
+    </bean>-->
 
     <!-- 这是一个容器 -->
-    <bean id="customerServiceImpl" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl">
+    <!--<bean id="customerServiceImpl" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl">
         <property name="properties">
-            <!--<value>address=测试字符串</value>-->
+            &lt;!&ndash;<value>address=测试字符串</value>&ndash;&gt;
             <props>
                 <prop key="name">${com.jomchen.name}</prop>
                 <prop key="age">${com.jomchen.age}</prop>
                 <prop key="address">${com.jomchen.name}</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
 
     <!-- 这仅仅是由静态工厂返回的实体，这个实体指明了容器的名字和生成这个实体的方法 -->
     <!--<bean id="staticCustomer" class="com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl"  factory-method="getStaticCustomer"/>-->

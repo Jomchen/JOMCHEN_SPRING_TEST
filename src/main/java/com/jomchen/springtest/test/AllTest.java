@@ -1,7 +1,7 @@
 package com.jomchen.springtest.test;
 
 
-import com.jomchen.springtest.interfaces.basedata.impl.CustomerServiceImpl;
+import com.jomchen.springtest.entity.basedata.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -20,8 +20,8 @@ public class AllTest {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-core.xml");
-        CustomerServiceImpl customerService = applicationContext.getBean("customerServiceImpl", CustomerServiceImpl.class);
-        LOGGER.warn("信息为：{}", customerService.getCustomer());
+        Customer customer = applicationContext.getBean("factoryCustomer", Customer.class);
+        LOGGER.warn("信息为：{}", customer.getCname());
 
     }
 }
