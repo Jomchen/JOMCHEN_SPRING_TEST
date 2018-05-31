@@ -9,7 +9,8 @@
     <name>jomchen-spring-test Maven Webapp</name>   <!-- 描述项目的名称 -->
     <url>http://maven.apache.org</url>              <!-- 开发团队的网站 -->
 
-    <repositories><!-- 代码库 -->
+    <!-- 代码库 -->
+    <repositories>
         <repository>
             <id>maven-ali</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
@@ -24,6 +25,12 @@
         </repository>
     </repositories>
 
+    <properties>
+        <spring.version>4.3.17.RELEASE</spring.version>
+    </properties>
+
+
+
 
     <dependencies>
         <dependency>
@@ -32,11 +39,16 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.3.17.RELEASE</version>
+            <version>${spring.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -47,22 +59,22 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.3.17.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>4.3.17.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>4.3.17.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
-            <version>4.3.17.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
@@ -70,7 +82,6 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
