@@ -1,6 +1,7 @@
 package com.jomchen.springtest.test;
 
 
+import com.jomchen.springtest.commons.factorys.TwoFactory;
 import com.jomchen.springtest.entity.basedata.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +21,8 @@ public class AllTest {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-core.xml");
-        Customer customer = applicationContext.getBean("factoryCustomer", Customer.class);
-        LOGGER.warn("信息为：{}", customer.getCname());
+        TwoFactory twoFactory = applicationContext.getBean("twoFactory", TwoFactory.class);
+        LOGGER.warn("信息为：{}", twoFactory);
 
     }
 }
