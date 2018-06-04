@@ -22,7 +22,7 @@ public class AllTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-core.xml");
         TwoFactory twoFactory = applicationContext.getBean("twoFactory", TwoFactory.class);
-        LOGGER.warn("信息为：{}", twoFactory);
+        LOGGER.warn("信息为：{}", twoFactory.getCustomer());
 
     }
 }
