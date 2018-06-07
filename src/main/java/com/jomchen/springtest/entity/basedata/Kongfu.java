@@ -1,21 +1,28 @@
 package com.jomchen.springtest.entity.basedata;
 
 import com.jomchen.springtest.entity.common.BaseEntity;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 /**
  * create by Jomchen on 5/20/18
  * 功夫
  */
+@PropertySource({"classpath:/message-develope.properties"})
+@Component
 public class Kongfu extends BaseEntity {
 
     private Integer kid;
     /**
      * 名字
      */
+    @Value("${develop.com.jomchen.name}")
     private String name;
     /**
      * 等级
      */
+    @Value("${develop.com.jomchen:9999}")
     private Integer level;
     /**
      * 创始人
