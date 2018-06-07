@@ -12,17 +12,17 @@
     <context:component-scan base-package="com.jomchen.springtest"/>
 
     <!-- 导入了工具配置 -->
-    <import resource="spring-util.xml"/>
+    <import resource="spring-develope.xml"/>
     <import resource="spring-test.xml"/>
 
     <!-- 导入信息文件 -->
-    <!--<context:property-placeholder location="message.properties, message-test.properties"/>-->
+    <!--<context:property-placeholder location="message-develope.properties, message-test.properties"/>-->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
-            <value>classpath:message.properties</value>
+            <value>classpath:message-develope.properties</value>
         </property>
         <property name="properties">
-            <value>com.jomchen.name=LIGANG</value>
+            <value>kaifa.com.jomchen.name=LIGANG</value>
         </property>
     </bean>
 
