@@ -6,6 +6,10 @@
 
   <display-name>Spring web application of Jomchen</display-name>
 
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
   <!-- 编码配置 -->
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
@@ -63,6 +67,7 @@
   <!-- map all requests for /app/* to the dispatcher servlet -->
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
+
 </web-app>
