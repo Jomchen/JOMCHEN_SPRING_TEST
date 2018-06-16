@@ -7,16 +7,15 @@ import java.util.EnumSet;
  */
 public enum ErrorMessageEnum {
 
-
     ERROR(-1, "未知错误"),
     ERROR_00(0, "系统错误"),
+    ERROR_01(1, "对象源不能为空"),
+    ERROR_02(2, "目标对象不能为空")
 
     ;
 
     private int code;
     private String name;
-
-    private static final EnumSet<ErrorMessageEnum> errorMessageEnums = EnumSet.allOf(ErrorMessageEnum.class);
 
     ErrorMessageEnum(int code, String name) {
         this.code = code;
@@ -32,6 +31,7 @@ public enum ErrorMessageEnum {
     }
 
     public ErrorMessageEnum getErrorMessageEnum(int code) {
+        EnumSet<ErrorMessageEnum> errorMessageEnums = EnumSet.allOf(ErrorMessageEnum.class);
         for (ErrorMessageEnum e : errorMessageEnums) {
             if (e.getCode() == code) {
                 return e;

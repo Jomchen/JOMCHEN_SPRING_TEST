@@ -24,8 +24,6 @@ public enum ColorEnum {
         this.name = name;
     }
 
-    private static final EnumSet<ColorEnum> colorEnums = EnumSet.allOf(ColorEnum.class);
-
     public int getCode() {
         return code;
     }
@@ -35,14 +33,13 @@ public enum ColorEnum {
     }
     
     public ColorEnum getColorEnumByCode(int i) {
-        ColorEnum result = null;
+        EnumSet<ColorEnum> colorEnums = EnumSet.allOf(ColorEnum.class);
         for (ColorEnum c : colorEnums) {
             if (c.getCode() == i) {
-                result = c;
-                break;
+                return c;
             }
         }
-        return result;
+        return null;
     }
     
 }
