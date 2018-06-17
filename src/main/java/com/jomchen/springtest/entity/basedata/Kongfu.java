@@ -71,4 +71,14 @@ public class Kongfu extends BaseEntity {
         this.founder = founder;
     }
 
+    @Override
+    public String toString() {
+        return "Kongfu{" +
+                "kid=" + kid +
+                ", name='" + name + '\'' +
+                ", level=" + level +
+                ", founder=" + founder +
+                '}';
+    }
+
 }

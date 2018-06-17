@@ -102,4 +102,16 @@ public class MyTest extends BaseEntity {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "MyTest{" +
+                "mid=" + mid +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", kongfu=" + kongfu +
+                ", customer=" + customer +
+                '}';
+    }
+
 }
