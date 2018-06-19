@@ -30,6 +30,14 @@ public class PropertiesUtils {
         this.name = name;
     }
 
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
     @Override
     public String toString() {
         return "PropertiesUtils{" +
