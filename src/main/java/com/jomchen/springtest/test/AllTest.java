@@ -1,10 +1,8 @@
 package com.jomchen.springtest.test;
 
 
-import com.jomchen.springtest.entity.basedata.Kongfu;
 import com.jomchen.springtest.interfaces.test.MyTestService;
 import com.jomchen.springtest.interfaces.test.impl.MyTestServiceImpl;
-import com.jomchen.springtest.utils.PropertiesUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,7 +15,7 @@ import java.time.format.DateTimeFormatter;
  * create by Jomchen on 2018/1/5
  */
 @ComponentScan(basePackages = {"com.jomchen.springtest"})
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(proxyTargetClass = true) // 默认是以接口拦截的，这里显示用类的拦截，否则在获取实现类时会报错
 public class AllTest {
 
     public static Logger LOGGER = LoggerFactory.getLogger(AllTest.class);
@@ -33,7 +31,7 @@ public class AllTest {
         applicationContext.refresh();*/
 
 
-        MyTestService myTestService = applicationContext.getBean(MyTestService.class);
+        MyTestService myTestService = applicationContext.getBean(MyTestServiceImpl.class);
         myTestService.add(3);
 
 
