@@ -14,7 +14,8 @@
     <import resource="spring-test.xml"/>
 
     <!-- 导入信息文件 -->
-    <!--<context:property-placeholder location="message-develope.properties, message-test.properties"/>-->
+    <!-- 如果有多个则用空格 或 分号 或 逗号分隔 -->
+    <!--<context:property-placeholder location="message-develope.properties"/>-->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
             <value>classpath:message-develope.properties</value>

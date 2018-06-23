@@ -24,9 +24,11 @@ public class DateTimeUtils {
             Field field = fields[i];
             String fieldName = field.getName();
             boolean confirmAccessibleTc = field.isAccessible();
+            field.setAccessible(true);
 
             Field fieldKc = kc.getDeclaredField(fieldName);
             boolean confirmAccessibleKc = fieldKc.isAccessible();
+            fieldKc.setAccessible(true);
             if (null != fieldKc) {
                 Object value = field.get(source);
                 fieldKc.set(target, value);
