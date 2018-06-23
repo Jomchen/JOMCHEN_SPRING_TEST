@@ -32,7 +32,7 @@ public class AllTest {
 
 
         MyTestService myTestService = applicationContext.getBean(MyTestServiceImpl.class);
-        myTestService.add(3);
+        myTestService.otherOperator2(3, "LInux");
 
 
 

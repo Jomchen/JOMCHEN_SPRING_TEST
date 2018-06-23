@@ -1,8 +1,10 @@
 package com.jomchen.springtest.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,16 +14,21 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class MyTestAop {
 
-    @Around("execution(public * com.jomchen.springtest.interfaces.test.impl.*.*(..))")
-    public Object execute(ProceedingJoinPoint pjp) throws Throwable {
+    @Before("execution(* com.jomchen.springtest.interfaces.test..*(..)) && " +
+            "target(com.jomchen.springtest.interfaces.test.impl.MyTestServiceImpl) && args(int5, ..)")
+    public void execute(String int5) throws Throwable {
         System.out.println("面向切面执行 START");
         System.out.println("面向切面执行 START");
         System.out.println("面向切面执行 START");
-        Object result = pjp.proceed();
+        System.out.println(int5);
+        System.out.println(int5);
+        System.out.println(int5);
+        /*System.out.println(String);
+        System.out.println(String);
+        System.out.println(String);*/
         System.out.println("面向切面执行 END");
         System.out.println("面向切面执行 END");
         System.out.println("面向切面执行 END");
-        return result;
     }
 
 }

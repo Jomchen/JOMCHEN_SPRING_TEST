@@ -5,7 +5,7 @@ import com.jomchen.springtest.entity.test.MyTest;
 /**
  * create by Jomchen on 6/16/18
  */
-public interface MyTestService {
+public interface MyTestService<T> {
 
     /**
      * 添加
@@ -17,7 +17,7 @@ public interface MyTestService {
      * 删除
      * @return
      */
-    MyTest delete(int mid);
+    void delete(int mid);
 
     /**
      * 更新
@@ -37,5 +37,14 @@ public interface MyTestService {
      * @return
      */
     MyTest deleteByMid(int mid, int age);
+
+
+    /**
+     * 其它方法操作
+     * @return
+     */
+    int otherOperator(String cname, int age);
+
+    int otherOperator2(int age, String cname);
 
 }
