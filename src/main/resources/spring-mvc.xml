@@ -30,4 +30,7 @@
         <property name="suffix" value=".html" />
     </bean>
 
+    <!-- 静态资源过滤 -->
+    <mvc:resources  location="/static/" mapping="/static/**"/>
+
 </beans>
