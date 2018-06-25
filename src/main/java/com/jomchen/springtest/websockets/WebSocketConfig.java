@@ -18,7 +18,8 @@ public class WebSocketConfig implements WebSocketConfigurer{
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
         HttpSessionHandshakeInterceptor httpSessionHandshakeInterceptor = new HttpSessionHandshakeInterceptor();
         webSocketHandlerRegistry.addHandler(getMyTextHandler(), "/getMyTextHandler")
-                .addInterceptors(httpSessionHandshakeInterceptor);
+                .addInterceptors(httpSessionHandshakeInterceptor)
+                .withSockJS();
     }
 
     @Bean
