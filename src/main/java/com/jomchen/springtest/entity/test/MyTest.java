@@ -2,7 +2,7 @@ package com.jomchen.springtest.entity.test;
 
 import com.jomchen.springtest.entity.basedata.Customer;
 import com.jomchen.springtest.entity.basedata.Kongfu;
-import com.jomchen.springtest.entity.common.BaseEntity;
+import com.jomchen.springtest.entity.BaseEntity;
 
 /**
  * create by Jomchen on 6/16/18

@@ -1,6 +1,6 @@
 package com.jomchen.springtest.interfaces.test.impl;
 
-import com.jomchen.springtest.annotations.TestAnnotation;
+import com.jomchen.springtest.commons.annotations.TestAnnotation;
 import com.jomchen.springtest.entity.test.MyTest;
 import com.jomchen.springtest.interfaces.test.MyTestService;
 import org.springframework.stereotype.Service;

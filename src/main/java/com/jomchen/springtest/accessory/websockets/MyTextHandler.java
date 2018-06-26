@@ -1,4 +1,4 @@
-package com.jomchen.springtest.websockets;
+package com.jomchen.springtest.accessory.websockets;
 
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;

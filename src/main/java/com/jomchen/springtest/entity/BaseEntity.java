@@ -1,4 +1,4 @@
-package com.jomchen.springtest.entity.common;
+package com.jomchen.springtest.entity;
 
 import java.io.Serializable;
 

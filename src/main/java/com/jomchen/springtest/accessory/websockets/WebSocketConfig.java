@@ -1,4 +1,4 @@
-package com.jomchen.springtest.websockets;
+package com.jomchen.springtest.accessory.websockets;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

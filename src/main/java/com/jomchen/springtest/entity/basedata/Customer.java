@@ -1,9 +1,8 @@
 package com.jomchen.springtest.entity.basedata;
 
-import com.jomchen.springtest.entity.common.BaseEntity;
+import com.jomchen.springtest.entity.BaseEntity;
 
 import java.util.Date;
-import java.util.Objects;
 
 /**
  * create by Jomchen on 2018/1/5

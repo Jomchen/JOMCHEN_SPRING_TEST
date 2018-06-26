@@ -1,6 +1,6 @@
 package com.jomchen.springtest.entity.basedata;
 
-import com.jomchen.springtest.entity.common.BaseEntity;
+import com.jomchen.springtest.entity.BaseEntity;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;

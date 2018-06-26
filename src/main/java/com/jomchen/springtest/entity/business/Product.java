@@ -1,6 +1,6 @@
 package com.jomchen.springtest.entity.business;
 
-import com.jomchen.springtest.entity.common.BaseEntity;
+import com.jomchen.springtest.entity.BaseEntity;
 
 import java.util.Objects;
 

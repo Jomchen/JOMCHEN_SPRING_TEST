@@ -1,4 +1,4 @@
-package com.jomchen.springtest.aop;
+package com.jomchen.springtest.accessory.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;

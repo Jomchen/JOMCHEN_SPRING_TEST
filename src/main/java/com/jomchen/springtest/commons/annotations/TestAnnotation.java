@@ -1,4 +1,4 @@
-package com.jomchen.springtest.annotations;
+package com.jomchen.springtest.commons.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
