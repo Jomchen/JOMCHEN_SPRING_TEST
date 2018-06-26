@@ -14,3 +14,7 @@ socket.onclose = function() {
 socket.onerrror = function() {
     console.log("web socket is error !!");
 };
+
+window.onbeforeunload = function() {
+  socket.close();
+};
