@@ -30,7 +30,7 @@ public class ThymeleafConfig {
     }
 
     @Bean
-    public SpringTemplateEngine thymeleafTemplateEngline() {
+    public SpringTemplateEngine thymeleafTemplateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(thymeleafTemplateResolver());
         templateEngine.setEnableSpringELCompiler(true);
@@ -40,8 +40,8 @@ public class ThymeleafConfig {
     @Bean
     public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setTemplateEngine(thymeleafTemplateEngine());
         viewResolver.setOrder(1);
-        viewResolver.setViewNames(new String[] {".html", "xhtml"});
         return viewResolver;
     }
 
