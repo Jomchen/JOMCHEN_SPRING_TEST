@@ -6,6 +6,7 @@
         <title>主页</title>
         <link rel="stylesheet" type="text/css" href="./static/indexs/css/index.css">
         <script type="text/javascript" src="./static/common/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="./static/common/js/sockjs.min.js"></script>
         <script type="text/javascript" src="./static/indexs/js/index.js"></script>
     </head>
 
