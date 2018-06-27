@@ -12,6 +12,8 @@
     <body>
         <h2>Hello World!</h2>
         <h2>你好！</h2>
-        <div class="main"></div>
+        <div class="main">
+            <button class="submit" >提交</button>
+        </div>
     </body>
 </html>

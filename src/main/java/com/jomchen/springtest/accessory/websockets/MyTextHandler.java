@@ -12,12 +12,9 @@ public class MyTextHandler extends TextWebSocketHandler {
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         String data = message.getPayload();
-        System.out.println(data);
-        System.out.println(data);
-        System.out.println(data);
-        System.out.println(data);
-        System.out.println(data);
-        System.out.println(data);
+        System.out.println("websocket 处理的信息为：" + data);
+        System.out.println("websocket 处理的信息为：" + data);
+        System.out.println("websocket 处理的信息为：" + data);
         super.handleTextMessage(session, message);
     }
 
