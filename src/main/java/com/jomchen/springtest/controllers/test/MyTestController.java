@@ -1,5 +1,6 @@
 package com.jomchen.springtest.controllers.test;
 
+import com.jomchen.springtest.commons.web.UrlContents;
 import com.jomchen.springtest.interfaces.test.MyTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * create by Jomchen on 6/16/18
  */
 @Controller
-@RequestMapping("MyTestController")
 public class MyTestController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class MyTestController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("get")
+    @RequestMapping(UrlContents.MYTEST_GET)
     public String get(int mid) {
         myTestService.get(mid);
         return null;
@@ -32,7 +32,7 @@ public class MyTestController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("add")
+    @RequestMapping(UrlContents.MYTEST_ADD)
     public String add(int mid) {
         myTestService.add(mid);
         return null;
@@ -43,7 +43,7 @@ public class MyTestController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("update")
+    @RequestMapping(UrlContents.MYTEST_UPDATE)
     public String update() {
         myTestService.update();
         return null;
@@ -54,7 +54,7 @@ public class MyTestController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("delete")
+    @RequestMapping(UrlContents.MYTEST_DELETE)
     public String delete(int mid) {
         myTestService.delete(mid);
         return null;
@@ -65,7 +65,7 @@ public class MyTestController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("deleteByMid")
+    @RequestMapping(UrlContents.MYTEST_DELETE_BY_MID)
     public String deleteByMid(int mid, int age) {
         myTestService.deleteByMid(mid, age);
         return null;
