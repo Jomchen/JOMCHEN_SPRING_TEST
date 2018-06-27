@@ -1,25 +1,25 @@
 // var Socket = new WebSocket(url, [protocol] );
 var socket = new WebSocket("ws://127.0.0.1:8080/getMyTextHandler");  // 这里应该填写地址
 socket.onopen = function() {
-    var r = checkState(socket.readyState);
-    console.log(r);
+    var state = checkState(socket.readyState);
+    console.log(state);
     socket.send("webSocket client 的连接打开信息。。");
     console.log("webSocket connected !!");
 };
 socket.onmessage = function(message) {
     var result = message.data;
-    var r = checkState(socket.readyState);
-    console.log(r);
+    var state = checkState(socket.readyState);
+    console.log(state);
     console.log("webSocket client 的接收消息：" + result);
 };
 socket.onclose = function() {
-    var r = checkState(socket.readyState);
-    console.log(r);
+    var state = checkState(socket.readyState);
+    console.log(state);
     console.log("webSocket client disconnected !!")
 };
 socket.onerrror = function() {
-    var r = checkState(socket.readyState);
-    console.log(r);
+    var state = checkState(socket.readyState);
+    console.log(state);
     console.log("webSocket client error");
 };
 window.onbeforeunload = function() {
@@ -45,6 +45,7 @@ function checkState(state) {
             result = "未知状态";
             break;
     }
+    return result;
 }
 
 
