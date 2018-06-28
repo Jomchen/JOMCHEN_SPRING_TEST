@@ -1,5 +1,5 @@
 // var Socket = new WebSocket(url, [protocol] );
-var socket = new WebSocket("ws://127.0.0.1:8080/getMyTextHandler");  // 这里应该填写地址
+/*var socket = new WebSocket("ws://127.0.0.1:8080/getMyTextHandler");  // 这里应该填写地址
 socket.onopen = function() {
     var state = checkState(socket.readyState);
     console.log(state);
@@ -54,11 +54,10 @@ $(function() {
         var data = prompt("请输入您要上传的字符串？", "Linux");
         socket.send(data);
     });
-});
+});*/
 
 / * ----------------------------------------------------------------------------------------------------------------- */
 
-/*
 var sockjs = new SockJS("http://127.0.0.1:8080/getMyTextHandler");
 sockjs.onopen = function() {
     console.log("sockJs 打开连接了。。。");
@@ -75,4 +74,4 @@ $(function() {
         var data = prompt("请输入您要上传的字符串？", "Linux");
         sockjs.send(data);
     });
-});*/
+});

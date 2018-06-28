@@ -40,7 +40,8 @@ public class WebSocketConfig implements WebSocketConfigurer{
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
         webSocketHandlerRegistry.addHandler(getMyTextHandler(), "/getMyTextHandler")
                 .setAllowedOrigins("*")
-                .addInterceptors(httpSessionHandshakeInterceptor());
+                .addInterceptors(httpSessionHandshakeInterceptor())
+                .withSockJS(); // 此处是否以 sockJS 支持需要在客户端相匹配
     }
 
     /**
