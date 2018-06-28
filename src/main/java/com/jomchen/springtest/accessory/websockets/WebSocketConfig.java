@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
-import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
@@ -21,6 +20,10 @@ import java.util.Map;
 @Configuration
 public class WebSocketConfig implements WebSocketConfigurer{
 
+    /**
+     * 窗口工厂的配置
+     * @return
+     */
     @Bean
     public ServletServerContainerFactoryBean servletServerContainerFactoryBean() {
         ServletServerContainerFactoryBean servletServerContainerFactoryBean = new ServletServerContainerFactoryBean();
@@ -29,6 +32,10 @@ public class WebSocketConfig implements WebSocketConfigurer{
         return servletServerContainerFactoryBean;
     }
 
+    /**
+     * 地址映射处理
+     * @param webSocketHandlerRegistry
+     */
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
         webSocketHandlerRegistry.addHandler(getMyTextHandler(), "/getMyTextHandler")
@@ -36,11 +43,19 @@ public class WebSocketConfig implements WebSocketConfigurer{
                 .addInterceptors(httpSessionHandshakeInterceptor());
     }
 
+    /**
+     * 处理器提供
+     * @return
+     */
     @Bean
     public MyTextHandler getMyTextHandler() {
         return new MyTextHandler();
     }
 
+    /**
+     * 握手拦截
+     * @return
+     */
     @Bean
     public HttpSessionHandshakeInterceptor httpSessionHandshakeInterceptor() {
         return new HttpSessionHandshakeInterceptor() {
@@ -68,5 +83,6 @@ public class WebSocketConfig implements WebSocketConfigurer{
             }
         };
     }
+
 
 }
