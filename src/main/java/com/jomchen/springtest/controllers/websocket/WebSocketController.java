@@ -8,6 +8,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -25,9 +26,9 @@ public class WebSocketController {
         return "[" + System.currentTimeMillis() + ":" + greeting + "]";
     }
 
-    @RequestMapping(value = "/senMessageToAll/{data}")
+    @RequestMapping(value = "/senMessageToAll", method = RequestMethod.POST)
     @ResponseBody
-    public ApiData senMessageToAll(@PathVariable("data") String data) {
+    public ApiData senMessageToAll(String data) {
         myTextHandler.sendMessageToAll(data);
         return new ApiData(ErrorMessageEnum.ERROR_00, "") ;
     }
