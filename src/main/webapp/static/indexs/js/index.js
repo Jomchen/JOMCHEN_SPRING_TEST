@@ -63,6 +63,7 @@ sockjs.onopen = function() {
     console.log("sockJs 打开连接了。。。");
 };
 sockjs.onmessage = function(message) {
+    $(".some_message").append("<p>" + message.data + "</p>");
     console.log("sockJs 接收到的消息为：" + message.data);
 };
 sockjs.onclose = function() {
