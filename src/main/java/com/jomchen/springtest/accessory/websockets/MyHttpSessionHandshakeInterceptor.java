@@ -13,14 +13,24 @@ import java.util.Map;
 public class MyHttpSessionHandshakeInterceptor extends HttpSessionHandshakeInterceptor {
 
     @Override
-    public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
+    public boolean beforeHandshake(
+            ServerHttpRequest request,
+            ServerHttpResponse response,
+            WebSocketHandler wsHandler,
+            Map<String, Object> attributes) throws Exception {
+
         System.out.println("执行了握手之前的方法。。");
         System.out.println("执行了握手之前的方法。。");
         return super.beforeHandshake(request, response, wsHandler, attributes);
     }
 
     @Override
-    public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Exception ex) {
+    public void afterHandshake(
+            ServerHttpRequest request,
+            ServerHttpResponse response,
+            WebSocketHandler wsHandler,
+            Exception ex) {
+
         System.out.println("执行了握手之后的方法。。");
         System.out.println("执行了握手之后的方法。。");
         super.afterHandshake(request, response, wsHandler, ex);

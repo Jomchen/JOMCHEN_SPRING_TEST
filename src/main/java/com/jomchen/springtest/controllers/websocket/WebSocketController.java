@@ -20,16 +20,21 @@ public class WebSocketController {
     @Autowired
     MyTextHandler myTextHandler;
 
-    @MessageMapping("/greeting")
-    public String handle(String greeting) {
-        return "[" + System.currentTimeMillis() + ":" + greeting + "]";
-    }
-
+    /**
+     * 对于普通 webSocket 发送消息用于全部广播
+     * @param data
+     * @return
+     */
     @RequestMapping(value = "/senMessageToAll", method = RequestMethod.POST)
     @ResponseBody
     public ApiData senMessageToAll(String data) {
         myTextHandler.sendMessageToAll(data);
         return new ApiData(ErrorMessageEnum.ERROR_00, "") ;
+    }
+
+    @MessageMapping("/greeting")
+    public String handle(String greeting) {
+        return "[" + System.currentTimeMillis() + ":" + greeting + "]";
     }
 
 }

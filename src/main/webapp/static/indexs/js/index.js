@@ -1,5 +1,6 @@
 // var Socket = new WebSocket(url, [protocol] );
-/*var socket = new WebSocket("ws://127.0.0.1:8080/getMyTextHandler");  // 这里应该填写地址
+/* ---------------------------- 对于普通的 webSocket ------------------- */
+/*var socket = new WebSocket("ws://127.0.0.1:8080/getMyTextHandler");
 socket.onopen = function() {
     var state = checkState(socket.readyState);
     console.log(state);
@@ -56,8 +57,8 @@ $(function() {
     });
 });*/
 
-/ * ----------------------------------------------------------------------------------------------------------------- */
 
+/* -------------------------------- 对于 SockJs ---------------------------- */
 var sockjs = new SockJS("http://127.0.0.1:8080/getMyTextHandler");
 sockjs.onopen = function() {
     console.log("sockJs 打开连接了。。。");
