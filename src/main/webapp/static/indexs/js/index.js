@@ -59,7 +59,7 @@ $(function() {
 
 
 /* -------------------------------- 对于 SockJs ---------------------------- */
-var sockjs = new SockJS("http://127.0.0.1:8080/getMyTextHandler");
+/*var sockjs = new SockJS("http://127.0.0.1:8080/getMyTextHandler");
 sockjs.onopen = function() {
     console.log("sockJs 打开连接了。。。");
 };
@@ -76,11 +76,10 @@ $(function() {
         var data = prompt("请输入您要上传的字符串？", "Linux");
         sockjs.send(data);
     });
-});
+});*/
 
 /* --------------------------------- 对于 STOMP --------------------------- */
-/*
-var sockjs = new SockJS("http://127.0.0.1:8080/协议连接地址");
+/*var sockjs = new SockJS("/my_stomp_socket");
 sockjs.onopen = function() {
     console.log("stompClient 打开了链接。。。")
 };
@@ -90,17 +89,21 @@ sockjs.onmessage = function(message) {
 sockjs.onclose = function() {
     console.log("stompClient 连接关闭了。。。");
 };
-var stompClient = webstomp.over(sockjs);
+var stompClient = Stomp.over(sockjs);
 stompClient.connect({}, function(frame) {
-    stompClient.subscribe("/订阅路径", function(data) {
-
+    stompClient.subscribe("/topic/subscript00", function(data) {
+        $(".some_message").append("<p>" + data + "</p>");
     });
 });
-stompClient.send("/发送到相应路径", {}, "数据");
 
+对选用 STOMP 的包还没有 决定好!!
 
 $(function() {
     $(".submit").click(function() {
-
+        alert('Hellow Linux!!');
+        var data = prompt("请输入您要上传的字符串？", "Linux");
+        stompClient.send("/app/stomp/handle00", {}, JSON.stringify({
+            "name": data
+        }));
     });
 });*/

@@ -16,13 +16,16 @@ import java.util.List;
  * create by Jomchen on 2018/6/28
  *//*
 
+
+
+
 @Configuration
 @EnableWebSocketMessageBroker
-public class StompConfig implements WebSocketMessageBrokerConfigurer  {
+public class StompConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/portfolio")
+        registry.addEndpoint("/my_stomp_socket")
                 .withSockJS();
     }
 
