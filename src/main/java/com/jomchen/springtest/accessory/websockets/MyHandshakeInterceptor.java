@@ -11,7 +11,7 @@ import java.util.Map;
  * create by Jomchen on 2018/6/29
  * 握手拦截
  */
-public class MyHandshakeIngerceptor implements HandshakeInterceptor {
+public class MyHandshakeInterceptor implements HandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(
