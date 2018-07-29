@@ -5,23 +5,23 @@ socket.onopen = function() {
     var state = checkState(socket.readyState);
     console.log(state);
     socket.send("webSocket client 的连接打开信息。。");
-    console.log("webSocket connected !!");
+    console.log("webSocket 连接了。。。");
 };
 socket.onmessage = function(message) {
     var result = message.data;
     var state = checkState(socket.readyState);
     console.log(state);
-    console.log("webSocket client 的接收消息：" + result);
+    console.log("webSocket 接收消息：" + result);
 };
 socket.onclose = function() {
     var state = checkState(socket.readyState);
     console.log(state);
-    console.log("webSocket client 连接断开。。")
+    console.log("webSocket 连接断开。。")
 };
 socket.onerrror = function() {
     var state = checkState(socket.readyState);
     console.log(state);
-    console.log("webSocket client 错误 ！！");
+    console.log("webSocket 错误 ！！");
 };
 window.onbeforeunload = function() {
   socket.close();
@@ -77,3 +77,30 @@ $(function() {
         sockjs.send(data);
     });
 });
+
+/* --------------------------------- 对于 STOMP --------------------------- */
+/*
+var sockjs = new SockJS("http://127.0.0.1:8080/协议连接地址");
+sockjs.onopen = function() {
+    console.log("stompClient 打开了链接。。。")
+};
+sockjs.onmessage = function(message) {
+    console.log("stompClient 接收到了消息为：" + message.data);
+};
+sockjs.onclose = function() {
+    console.log("stompClient 连接关闭了。。。");
+};
+var stompClient = webstomp.over(sockjs);
+stompClient.connect({}, function(frame) {
+    stompClient.subscribe("/订阅路径", function(data) {
+
+    });
+});
+stompClient.send("/发送到相应路径", {}, "数据");
+
+
+$(function() {
+    $(".submit").click(function() {
+
+    });
+});*/

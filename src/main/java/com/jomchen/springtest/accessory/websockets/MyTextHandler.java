@@ -35,6 +35,7 @@ public class MyTextHandler extends TextWebSocketHandler {
         System.out.println("websocket 处理的信息为：" + data);
         System.out.println("websocket 处理的信息为：" + data);
         super.handleTextMessage(session, message);
+        sendMessageToAll(data);
     }
 
     public void sendMessageToAll(String message) {
