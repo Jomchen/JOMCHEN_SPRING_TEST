@@ -1,3 +1,4 @@
+/*
 package com.jomchen.springtest.accessory.websockets;
 
 import org.springframework.context.annotation.Bean;
@@ -8,17 +9,21 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 import org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor;
 
+*/
 /**
  * create by Jomchen on 2018/6/25
- */
+ *//*
+
 @EnableWebSocket
 @Configuration
 public class WebSocketConfig implements WebSocketConfigurer {
 
-    /**
+    */
+/**
      * 工厂的配置
      * @return
-     */
+     *//*
+
     @Bean
     public ServletServerContainerFactoryBean servletServerContainerFactoryBean() {
         ServletServerContainerFactoryBean servletServerContainerFactoryBean = new ServletServerContainerFactoryBean();
@@ -27,10 +32,12 @@ public class WebSocketConfig implements WebSocketConfigurer {
         return servletServerContainerFactoryBean;
     }
 
-    /**
+    */
+/**
      * 地址映射处理
      * @param webSocketHandlerRegistry
-     */
+     *//*
+
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
         webSocketHandlerRegistry.addHandler(getMyTextHandler(), "/getMyTextHandler")
@@ -39,19 +46,23 @@ public class WebSocketConfig implements WebSocketConfigurer {
                 .withSockJS(); // 此处是否以 sockJS 支持需要在客户端相匹配
     }
 
-    /**
+    */
+/**
      * 处理器提供
      * @return
-     */
+     *//*
+
     @Bean
     public MyTextHandler getMyTextHandler() {
         return new MyTextHandler();
     }
 
-    /**
+    */
+/**
      * 握手拦截
      * @return
-     */
+     *//*
+
     @Bean
     public HttpSessionHandshakeInterceptor httpSessionHandshakeInterceptor() {
         return new MyHttpSessionHandshakeInterceptor();
@@ -59,3 +70,4 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
 
 }
+*/

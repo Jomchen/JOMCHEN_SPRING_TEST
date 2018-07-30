@@ -1,4 +1,3 @@
-/*
 package com.jomchen.springtest.accessory.websockets;
 
 import org.springframework.context.annotation.Configuration;
@@ -11,10 +10,9 @@ import org.springframework.web.socket.config.annotation.*;
 
 import java.util.List;
 
-*/
 /**
  * create by Jomchen on 2018/6/28
- *//*
+ */
 
 
 
@@ -63,4 +61,3 @@ public class StompConfig implements WebSocketMessageBrokerConfigurer {
     }
 
 }
-*/

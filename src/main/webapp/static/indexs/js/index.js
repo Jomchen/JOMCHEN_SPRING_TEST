@@ -79,7 +79,7 @@ $(function() {
 });*/
 
 /* --------------------------------- 对于 STOMP --------------------------- */
-/*var sockjs = new SockJS("/my_stomp_socket");
+var sockjs = new SockJS("/my_stomp_socket");
 sockjs.onopen = function() {
     console.log("stompClient 打开了链接。。。")
 };
@@ -89,21 +89,22 @@ sockjs.onmessage = function(message) {
 sockjs.onclose = function() {
     console.log("stompClient 连接关闭了。。。");
 };
+
 var stompClient = Stomp.over(sockjs);
 stompClient.connect({}, function(frame) {
+    console.log("stompCLient 打开了链接。。。" + frame);
     stompClient.subscribe("/topic/subscript00", function(data) {
-        $(".some_message").append("<p>" + data + "</p>");
+        $(".some_message").append("<p>订阅00消息：" + data.body + "</p>");
+    });
+
+    stompClient.subscribe("/topic/subscript01", function(data) {
+        $(".some_message").append("<p>订阅01消息：" + data.body + "</p>");
     });
 });
 
-对选用 STOMP 的包还没有 决定好!!
-
 $(function() {
     $(".submit").click(function() {
-        alert('Hellow Linux!!');
         var data = prompt("请输入您要上传的字符串？", "Linux");
-        stompClient.send("/app/stomp/handle00", {}, JSON.stringify({
-            "name": data
-        }));
+        stompClient.send("/app/stomp/handle00", {}, data);
     });
-});*/
+});
