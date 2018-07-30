@@ -91,18 +91,24 @@ sockjs.onclose = function() {
 };
 
 var stompClient = Stomp.over(sockjs);
-stompClient.connect({}, function(frame) {
-    console.log("stompCLient 打开了链接。。。" + frame);
-    stompClient.subscribe("/topic/subscript00", function(data) {
-        $(".some_message").append("<p>订阅00消息：" + data.body + "</p>");
-    });
-
-    stompClient.subscribe("/topic/subscript01", function(data) {
-        $(".some_message").append("<p>订阅01消息：" + data.body + "</p>");
-    });
-});
+stompClient.connect(
+    {},
+    function(frame) {
+        console.log("stompClient 打开了链接。。。" + frame);
+        stompClient.subscribe("/topic/subscript00", function(data) {
+            $(".some_message").append("<p>订阅00消息：" + data.body + "</p>");
+        });
+        stompClient.subscribe("/topic/subscript01", function(data) {
+            $(".some_message").append("<p>订阅01消息：" + data.body + "</p>");
+        });
+    },
+    function(frame) {
+        console.log("stompClient 链接断开了。。。" + frame)
+    }
+);
 
 $(function() {
+    // STOMP 只能传字符串
     $(".submit").click(function() {
         var data = prompt("请输入您要上传的字符串？", "Linux");
         stompClient.send("/app/stomp/handle00", {}, data);
