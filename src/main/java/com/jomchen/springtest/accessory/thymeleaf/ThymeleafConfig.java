@@ -26,6 +26,7 @@ public class ThymeleafConfig {
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML); // 默认模板
         templateResolver.setCacheable(true); // 是否使用模板缓存
+        templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
 
@@ -42,6 +43,7 @@ public class ThymeleafConfig {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(thymeleafTemplateEngine());
         viewResolver.setOrder(1);
+        viewResolver.setContentType("text/html; charset=UTF-8");
         return viewResolver;
     }
 
