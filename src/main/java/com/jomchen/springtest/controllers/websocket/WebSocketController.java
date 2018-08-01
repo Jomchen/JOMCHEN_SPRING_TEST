@@ -25,7 +25,7 @@ public class WebSocketController {
         return "websocket/websocket00";
     }
     @ResponseBody
-    @RequestMapping(value = AJAX_WEBSOCKET_TEST00, method = RequestMethod.GET)
+    @RequestMapping(value = AJAX_WEBSOCKET_TEST00, method = RequestMethod.POST)
     public String ajaxWebsocket00(String name) {
         System.out.println("服务接到消息为：" + name);
         return "Linux";

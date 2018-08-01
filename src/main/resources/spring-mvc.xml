@@ -50,6 +50,14 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
     <!-- 静态资源过滤 -->
     <mvc:resources  location="/static/" mapping="/static/**"/>
 
