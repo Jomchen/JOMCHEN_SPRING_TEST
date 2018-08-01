@@ -20,7 +20,6 @@ $(function () {
     });
 
     $(".ajax_anniu").click(function() {
-        alert("kkkk");
         $.ajax({
             url: "/WebSocketController/ajax/websocket/test00",
             type: "POST",
@@ -29,10 +28,10 @@ $(function () {
                 "name": "有梦的人"
             },
             success: function(data) {
-                alert("ajax请求成功，返回数据为：" + data)
+                alert("ajax请求成功，返回完整数据为：\n" + JSON.stringify(data));
             },
             error: function(error) {
-                alert("ajax请求错误，错误数据为：" + error)
+                alert("ajax请求错误，错误数据为：" + JSON.stringify(error));
             }
         });
     });

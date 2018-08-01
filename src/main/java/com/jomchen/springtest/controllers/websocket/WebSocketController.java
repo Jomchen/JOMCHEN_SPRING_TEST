@@ -1,11 +1,15 @@
 package com.jomchen.springtest.controllers.websocket;
 
+import com.alibaba.fastjson.JSONObject;
+import com.jomchen.springtest.entity.basedata.Customer;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 
 import static com.jomchen.springtest.commons.web.UrlContents.*;
 
@@ -28,7 +32,8 @@ public class WebSocketController {
     @RequestMapping(value = AJAX_WEBSOCKET_TEST00, method = RequestMethod.POST)
     public String ajaxWebsocket00(String name) {
         System.out.println("服务接到消息为：" + name);
-        return "Linux";
+        Customer customer = new Customer(1, 22, "李寻欢", "京城", new Date());
+        return JSONObject.toJSONString(customer);
     }
 
     @RequestMapping(value = WEBSOCKET_TEST01, method = RequestMethod.GET)
