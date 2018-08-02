@@ -32,7 +32,7 @@ public class WebSocketController {
     @RequestMapping(value = AJAX_WEBSOCKET_TEST00, method = RequestMethod.POST)
     public String ajaxWebsocket00(String name) {
         System.out.println("服务接到消息为：" + name);
-        Customer customer = new Customer(1, 22, "李寻欢", "京城", new Date());
+        Customer customer = new Customer(1, 22, name, "京城", new Date());
         return JSONObject.toJSONString(customer);
     }
 

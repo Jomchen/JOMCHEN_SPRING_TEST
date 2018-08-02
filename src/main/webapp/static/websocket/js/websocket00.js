@@ -20,12 +20,13 @@ $(function () {
     });
 
     $(".ajax_anniu").click(function() {
+        var data = prompt("您要上传的信息为：", "有梦的人");
         $.ajax({
             url: "/WebSocketController/ajax/websocket/test00",
             type: "POST",
             dataType: "json",
             data: {
-                "name": "有梦的人"
+                "name": data
             },
             success: function(data) {
                 alert("ajax请求成功，返回完整数据为：\n" + JSON.stringify(data));
