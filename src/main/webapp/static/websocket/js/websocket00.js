@@ -15,8 +15,9 @@ stompClient.connect(
 
 $(function () {
     $(".websocket_anniu").click(function() {
-        var sendData = prompt("您要传的信息为：", "websocket00");
-        stompClient.send("/app/stomp/handle00", {}, sendData);
+        var data = prompt("您要传的信息为：", "websocket00");
+        var sendData = {"cname": data};
+        stompClient.send("/app/stomp/handle00", {}, JSON.stringify(sendData));
     });
 
     $(".ajax_anniu").click(function() {

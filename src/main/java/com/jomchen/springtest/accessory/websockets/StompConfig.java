@@ -13,10 +13,6 @@ import java.util.List;
 /**
  * create by Jomchen on 2018/6/28
  */
-
-
-
-
 @Configuration
 @EnableWebSocketMessageBroker
 public class StompConfig implements WebSocketMessageBrokerConfigurer {
@@ -30,11 +26,14 @@ public class StompConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         registry.setApplicationDestinationPrefixes("/app");
+
         registry.enableSimpleBroker("/topic", "/queue");
     }
 
     @Override
     public void configureWebSocketTransport(WebSocketTransportRegistration registry) {
+        registry.setMessageSizeLimit(1024);
+        registry.setSendBufferSizeLimit(1024);
     }
 
     @Override
