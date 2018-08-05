@@ -19,4 +19,20 @@ $(function () {
         var sendData = {"cname": data};
         stompClient.send("/app/stomp/handle01", {}, JSON.stringify(sendData));
     });
+
+    $(".ajax_anniu").click(function() {
+        var data = prompt("您要上传的 ajax 信息为：", "谢晓峰");
+        $.ajax({
+            url: "/WebSocketController/ajax/websocket/test01",
+            type: "POST",
+            dataType: "json",
+            data: {"name": data},
+            success: function(result) {
+                alert("在 websocket01 方 ajax 请求成功，返回完整数据为：\n" + JSON.stringify(result));
+            },
+            error: function(error) {
+                alert("在websocket01 方的 ajax 请求失败信息为：" + error);
+            }
+        });
+    });
 });

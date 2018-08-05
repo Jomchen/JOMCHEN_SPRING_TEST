@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.jomchen.springtest.entity.basedata.Customer;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +23,10 @@ import static com.jomchen.springtest.commons.web.UrlContents.*;
 public class WebSocketController {
 
     /* ----- 未处理的问题 -----
+
     1. websocket 上传如果有中文的情况会报错
     2. 页面的编码未设成 utf-8 编码
+
     ----------------------- */
 
     /**
@@ -34,14 +37,14 @@ public class WebSocketController {
     public String websocket00() {
         return "websocket/websocket00";
     }
-    @ResponseBody
 
     /**
      * websocket00 页面的 ajax 请求
      */
     @RequestMapping(value = AJAX_WEBSOCKET_TEST00, method = RequestMethod.POST)
+    @ResponseBody
     public String ajaxWebsocket00(String name) {
-        System.out.println("服务接到消息为：" + name);
+        System.out.println("websocket00 服务接到 ajax 消息为：" + name);
         Customer customer = new Customer(1, 22, name, "京城", new Date());
         return JSONObject.toJSONString(customer);
     }
@@ -55,12 +58,26 @@ public class WebSocketController {
     }
 
     /**
+     * 到 websocket01 页面的 ajax 请求
+     */
+    @RequestMapping(value = AJAX_WEBSOCKET_TEST01, method = RequestMethod.POST)
+    @ResponseBody
+    public String ajaxWebsocket01(String name) {
+        System.out.println("websocket01 服务接到 ajax 消息为：" + name);
+        Customer customer = new Customer(2, 44, name, "天涯", new Date());
+        return JSONObject.toJSONString(customer);
+    }
+
+
+
+    /**
      * websocket00 的订阅
      */
     @MessageMapping("handle00")
-    @SendTo({"/topic/subscript00", "/topic/subscript01"})
+    /*@SendTo({"/topic/subscript00", "/topic/subscript01"})*/
+    @SubscribeMapping({"/topic/subscript00", "/topic/subscript01"})
     public String handleRequest00(Customer customer) {
-        System.out.println("服务端接收到了消息: " + customer.getCname());
+        System.out.println("websocekt00 服务端接收到了消息: " + customer.getCname());
         customer.setCname("有梦的人");
         return JSONObject.toJSONString(customer);
     }
@@ -69,9 +86,9 @@ public class WebSocketController {
      * websocket01 的订阅
      */
     @MessageMapping("handle01")
-    @SendTo("/topic/subscript01")
+    @SendTo({"/topic/subscript00", "/topic/subscript01"})
     public String handleRequest01(String name) {
-        System.out.println("服务端接收到了消息: " + name);
+        System.out.println("websocekt01 服务端接收到了消息: " + name);
         return name;
     }
 

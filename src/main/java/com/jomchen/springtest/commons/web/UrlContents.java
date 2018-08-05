@@ -17,5 +17,5 @@ public class UrlContents {
     public static final String WEBSOCKET_TEST00 = "/WebSocketController/websocket/test00";
     public static final String AJAX_WEBSOCKET_TEST00 = "/WebSocketController/ajax/websocket/test00";
     public static final String WEBSOCKET_TEST01 = "/WebSocketController/websocket/test01";
-
+    public static final String AJAX_WEBSOCKET_TEST01 = "/WebSocketController/ajax/websocket/test01";
 }
