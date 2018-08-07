@@ -19,7 +19,6 @@ import static com.jomchen.springtest.commons.web.UrlContents.*;
  * create by Jomchen on 2018/6/28
  */
 @Controller
-@MessageMapping("/stomp")
 public class WebSocketController {
 
     /* ----- 未处理的问题 -----
@@ -73,9 +72,8 @@ public class WebSocketController {
     /**
      * websocket00 的订阅
      */
-    @MessageMapping("handle00")
-    /*@SendTo({"/topic/subscript00", "/topic/subscript01"})*/
-    @SubscribeMapping({"/topic/subscript00", "/topic/subscript01"})
+    @MessageMapping("/stomp/handle00")
+    @SendTo({"/topic/subscript00", "/topic/subscript01"})
     public String handleRequest00(Customer customer) {
         System.out.println("websocekt00 服务端接收到了消息: " + customer.getCname());
         customer.setCname("有梦的人");
@@ -85,7 +83,7 @@ public class WebSocketController {
     /**
      * websocket01 的订阅
      */
-    @MessageMapping("handle01")
+    @MessageMapping("/stomp/handle01")
     @SendTo({"/topic/subscript00", "/topic/subscript01"})
     public String handleRequest01(String name) {
         System.out.println("websocekt01 服务端接收到了消息: " + name);
