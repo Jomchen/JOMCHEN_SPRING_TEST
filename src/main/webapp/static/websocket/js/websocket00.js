@@ -7,6 +7,9 @@ stompClient.connect(
         stompClient.subscribe("/topic/subscript00", function(data) {
             $(".text_content").append("<p>/topic/subscript00 接到信息为：" + data.body + "</p>");
         });
+        stompClient.subscribe("/app/jomchen", function(data) {
+            $(".text_content").append("<p>/app/jomchen 接到信息为：" + data.body + "</p>");
+        });
     },
     function(frame) {
         console.log("websocket00 连接断开了。。。" + frame);

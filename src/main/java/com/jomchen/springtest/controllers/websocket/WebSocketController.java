@@ -91,5 +91,17 @@ public class WebSocketController {
         return JSONObject.toJSONString(customer);
     }
 
+    /**
+     * 项目启动后对订阅了 /app/jomchen 的会直接发送一次给它,
+     * 并且如果在 类头部有 @MessageMapping 那么会带上相应注解里的路径
+     */
+    @SubscribeMapping("jomchen")
+    public String execute() {
+        System.out.println("经过了 subscribeMapping");
+        Customer customer = new Customer();
+        customer.setCname("i am jomchen");
+        return JSONObject.toJSONString(customer);
+    }
+
 
 }
