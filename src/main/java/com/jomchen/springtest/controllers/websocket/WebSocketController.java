@@ -75,8 +75,8 @@ public class WebSocketController {
     @MessageMapping("/stomp/handle00")
     @SendTo({"/topic/subscript00", "/topic/subscript01"})
     public String handleRequest00(Customer customer) {
-        System.out.println("websocekt00 服务端接收到了消息: " + customer.getCname());
-        customer.setCname("有梦的人");
+        System.out.println("websocekt00 服务端接收到了消息: " + JSONObject.toJSONString(customer));
+        customer.setCname("有梦的人00");
         return JSONObject.toJSONString(customer);
     }
 
@@ -85,9 +85,11 @@ public class WebSocketController {
      */
     @MessageMapping("/stomp/handle01")
     @SendTo({"/topic/subscript00", "/topic/subscript01"})
-    public String handleRequest01(String name) {
-        System.out.println("websocekt01 服务端接收到了消息: " + name);
-        return name;
+    public String handleRequest01(Customer customer) {
+        System.out.println("websocekt01 服务端接收到了消息: " + JSONObject.toJSONString(customer));
+        customer.setCname("有梦的人01");
+        return JSONObject.toJSONString(customer);
     }
+
 
 }
