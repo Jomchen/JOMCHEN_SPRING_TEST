@@ -4,31 +4,32 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-  <display-name>Spring web application of Jomchen</display-name>
+    <display-name>Spring web application of Jomchen</display-name>
 
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
     <absolute-ordering/>
 
   <!-- 编码配置 -->
-  <filter>
-    <filter-name>characterEncodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-      <async-supported>true</async-supported>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>UTF-8</param-value>
-    </init-param>
-    <init-param>
-      <param-name>forceEncoding</param-name>
-      <param-value>true</param-value>
-    </init-param>
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+            <async-supported>true</async-supported> <!-- 在 servlet3.0 上加在所有的过滤器和servlet里，因为 websocket 的握手拦截必须是异步支持 -->
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
   </filter>
+
   <filter-mapping>
-    <filter-name>characterEncodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+      <filter-name>characterEncodingFilter</filter-name>
+      <url-pattern>/*</url-pattern>
   </filter-mapping>
 
   <!--<context-param>
@@ -42,36 +43,36 @@
       fully-qualified @Configuration classes. Fully-qualified packages may also be
       specified for component-scanning -->
   <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <!-- 这里可以是指定一个类的路径，也可以是一个spring-core.xml的主要配置路径(要带上classpath:) -->
-    <param-value>classpath:spring-core.xml</param-value>
+      <param-name>contextConfigLocation</param-name>
+        <!-- 这里可以是指定一个类的路径，也可以是一个spring-core.xml的主要配置路径(要带上classpath:) -->
+      <param-value>classpath:spring-core.xml</param-value>
   </context-param>
 
   <!-- Bootstrap the root application context as usual using ContextLoaderListener -->
   <!-- 由 spring 容器来监听装配 web 上下文 -->
   <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
   <!-- Declare a Spring MVC DispatcherServlet as usual -->
   <servlet>
-    <servlet-name>springmvc</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <servlet-name>springmvc</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <!-- Again, config locations must consist of one or more comma- or space-delimited
         and fully-qualified @Configuration classes -->
     <!-- 这里用于指定 springmvc 相关的xml 配置 -->
-    <init-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring-mvc.xml</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-      <async-supported>true</async-supported>
+      <init-param>
+          <param-name>contextConfigLocation</param-name>
+          <param-value>classpath:spring-mvc.xml</param-value>
+      </init-param>
+      <load-on-startup>1</load-on-startup>
+      <async-supported>true</async-supported> <!-- 在 servlet3.0 上加在所有的过滤器和servlet里，因为 websocket 的握手拦截必须是异步支持 -->
   </servlet>
 
   <!-- map all requests for /app/* to the dispatcher servlet -->
   <servlet-mapping>
-    <servlet-name>springmvc</servlet-name>
-    <url-pattern>/</url-pattern>
+      <servlet-name>springmvc</servlet-name>
+      <url-pattern>/</url-pattern>
   </servlet-mapping>
 
 </web-app>
