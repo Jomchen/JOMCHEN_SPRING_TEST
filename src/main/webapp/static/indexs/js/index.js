@@ -103,7 +103,7 @@ stompClient.connect(
         });
     },
     function(frame) {
-        console.log("stompClient 链接断开了。。。" + frame)
+        console.log("stompClient 链接断开了。。。" + frame);
         $(".some_message").append("<p>链接断开了，消息：" + frame + "</p>");
     }
 );
