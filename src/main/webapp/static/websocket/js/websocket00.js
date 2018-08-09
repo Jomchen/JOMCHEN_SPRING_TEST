@@ -7,6 +7,9 @@ stompClient.connect(
         stompClient.subscribe("/topic/subscript00", function(data) {
             $(".text_content").append("<p>/topic/subscript00 接到信息为：" + data.body + "</p>");
         });
+        stompClient.subscribe("/user/queue/notifications", function(data) {
+            $(".text_content").append("<p>websocket00 /user/queue/notifications 接到信息为：" + data.body + "</p>");
+        });
         stompClient.subscribe("/app/jomchen", function(data) {
             $(".text_content").append("<p>/app/jomchen 接到信息为：" + data.body + "</p>");
         });
@@ -21,6 +24,12 @@ $(function () {
         var data = prompt("您要传的信息为：", "websocket00");
         var sendData = {"cname": data};
         stompClient.send("/app/stomp/handle00", {}, JSON.stringify(sendData));
+    });
+
+    $(".websocket_to_user").click(function() {
+        var data = prompt("您要指定发送的信息为：", "zhidingMessage");
+        var sendData = {"cname": data};
+        stompClient.send("/app/stomp/handleRequest00ToUser", {}, JSON.stringify(sendData));
     });
 
     $(".ajax_anniu").click(function() {

@@ -4,9 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.jomchen.springtest.entity.basedata.Customer;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -70,28 +70,6 @@ public class WebSocketController {
 
 
     /**
-     * websocket00 的订阅
-     */
-    @MessageMapping("/stomp/handle00")
-    @SendTo({"/topic/subscript00", "/topic/subscript01"})
-    public String handleRequest00(Customer customer) {
-        System.out.println("websocekt00 服务端接收到了消息: " + JSONObject.toJSONString(customer));
-        customer.setCname("有梦的人00");
-        return JSONObject.toJSONString(customer);
-    }
-
-    /**
-     * websocket01 的订阅
-     */
-    @MessageMapping("/stomp/handle01")
-    @SendTo({"/topic/subscript00", "/topic/subscript01"})
-    public String handleRequest01(Customer customer) {
-        System.out.println("websocekt01 服务端接收到了消息: " + JSONObject.toJSONString(customer));
-        customer.setCname("有梦的人01");
-        return JSONObject.toJSONString(customer);
-    }
-
-    /**
      * 项目启动后对订阅了 /app/jomchen 的会直接发送一次给它,
      * 并且如果在 类头部有 @MessageMapping 那么会带上相应注解里的路径
      */
@@ -103,5 +81,34 @@ public class WebSocketController {
         return JSONObject.toJSONString(customer);
     }
 
+    /**
+     * websocket00 的订阅
+     */
+    @MessageMapping("/stomp/handle00")
+    @SendTo({"/topic/subscript00", "/topic/subscript01"})
+    public String handleRequest00(Customer customer) {
+        System.out.println("websocekt00 服务端接收到了消息: " + JSONObject.toJSONString(customer));
+        return JSONObject.toJSONString(customer);
+    }
+
+    /**
+     * websocket00 的指定发送
+     */
+    @MessageMapping("/stomp/handleRequest00ToUser")
+    @SendToUser("/queue/notifications")
+    public String handleRequest00ToUser(Customer customer) {
+        System.out.println("websocket00ToUser 服务端接收到了消息: " + JSONObject.toJSONString(customer));
+        return JSONObject.toJSONString(customer);
+    }
+
+    /**
+     * websocket01 的订阅
+     */
+    @MessageMapping("/stomp/handle01")
+    @SendTo({"/topic/subscript00", "/topic/subscript01"})
+    public String handleRequest01(Customer customer) {
+        System.out.println("websocekt01 服务端接收到了消息: " + JSONObject.toJSONString(customer));
+        return JSONObject.toJSONString(customer);
+    }
 
 }
