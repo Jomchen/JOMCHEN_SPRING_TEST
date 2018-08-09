@@ -112,6 +112,7 @@ $(function() {
     // STOMP 只能传字符串
     $(".submit").click(function() {
         var data = prompt("请输入您要上传的字符串？", "Linux");
-        stompClient.send("/app/stomp/handle00", {}, data);
+        var sendData = {"cname": data};
+        stompClient.send("/app/stomp/handle00", {}, JSON.stringify(sendData));
     });
 });
