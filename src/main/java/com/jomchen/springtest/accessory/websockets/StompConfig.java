@@ -71,4 +71,33 @@ public class StompConfig implements WebSocketMessageBrokerConfigurer {
         return true;
     }
 
+
+    /*@SuppressWarnings("rawtypes")
+    @Override
+    public Message<?> preSend(Message<?> message, MessageChannel channel) {
+        StompHeaderAccessor accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
+        if (StompCommand.CONNECT.equals(accessor.getCommand())) {
+            System.out.println("连接success");
+            Object raw = message.getHeaders().get(SimpMessageHeaderAccessor.NATIVE_HEADERS);
+            if (raw instanceof Map) {
+                Object name = ((Map) raw).get("name");
+                if (name instanceof LinkedList) {
+                    String id = ((LinkedList) name).get(0).toString();
+                    //设置当前访问器的认证用户
+                    accessor.setUser(new WebsocketUserVO(id));
+                    webSocketServ.pushOnlineUser(id);
+                }
+            }
+        } else if (StompCommand.DISCONNECT.equals(accessor.getCommand())) {
+            //点击断开连接，这里会执行两次，第二次执行的时候，message.getHeaders.size()=5,第一次是6。直接关闭浏览器，只会执行一次，size是5。
+            System.out.println("断开连接");
+            WebsocketUserVO vo = (WebsocketUserVO) message.getHeaders().get(SimpMessageHeaderAccessor.USER_HEADER);
+
+            //  如果同时发生两个连接，只有都断开才能叫做不在线
+            if (message.getHeaders().size() == 5&&StringUtils.isBlank(userRegistry.getUser(vo.getName()))) {
+                webSocketServ.removeOnlineUser(vo.getName());
+            }
+        }
+        return message;
+    }*/
 }
