@@ -1,5 +1,7 @@
 package com.jomchen.springtest.accessory.websockets;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.socket.WebSocketHandler;
@@ -12,18 +14,20 @@ import java.util.Map;
  * create by Jomchen on 2018/8/9
  */
 public class MyHandshakeHandler implements HandshakeHandler {
+
+    private Logger logger = LoggerFactory.getLogger(MyHandshakeHandler.class);
+
     @Override
-    public boolean doHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws HandshakeFailureException {
-        attributes.forEach((k, v) -> {
-            System.out.println(k + "----------------" +v);
-            System.out.println(k + "----------------" +v);
-            System.out.println(k + "----------------" +v);
-            System.out.println(k + "----------------" +v);
-            System.out.println(k + "----------------" +v);
-            System.out.println(k + "----------------" +v);
-            System.out.println(k + "----------------" +v);
-            System.out.println(k + "----------------" +v);
-        });
+    public boolean doHandshake(
+            ServerHttpRequest request,
+            ServerHttpResponse response,
+            WebSocketHandler wsHandler,
+            Map<String, Object> attributes) throws HandshakeFailureException {
+
+        logger.warn("websocket 执行了握手处理器。。");
+
+
         return true;
     }
+
 }
