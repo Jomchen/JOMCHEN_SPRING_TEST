@@ -32,6 +32,7 @@ public class StompConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/my_stomp_socket")
                 .setHandshakeHandler(new MyHandshakeHandler())
                 .addInterceptors(new MyHttpSessionHandshakeInterceptor())
+                .setAllowedOrigins("*")
                 .withSockJS();
     }
 
