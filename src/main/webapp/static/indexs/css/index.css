@@ -24,7 +24,7 @@ html, body {
     background-repeat: round;
 }
 
-
+/* 导航栏总体 */
 .navigation ul  {
     margin: 0;
     padding: 0;
@@ -35,19 +35,23 @@ html, body {
     text-decoration: none;
 }
 
+/* 导航栏标题 */
 a[class=title] {
     font-family: "Ubuntu Light";
     font-style: italic;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 2em;
     color: #ffffff;
 }
 a[class=title]:hover {
     color: #808080;
+    padding-right: 2em;
 }
 
-
+/* 导航栏隐藏内容 */
 ul[class=content] {
+    font-weight: 500;
+    font-size: 1.3em;
     display: none;
 }
 ul[class=content] > li {
