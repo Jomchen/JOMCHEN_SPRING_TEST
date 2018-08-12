@@ -21,7 +21,7 @@ html, body {
     position: absolute;
     background-image: url(/static/common/images/lixunhuan.jpeg);
     /*background-color: darkred;*/
-    background-repeat: round;
+    background-size: cover;
 }
 
 /* 导航栏总体 */
