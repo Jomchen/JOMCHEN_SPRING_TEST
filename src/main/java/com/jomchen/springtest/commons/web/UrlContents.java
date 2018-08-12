@@ -5,8 +5,8 @@ package com.jomchen.springtest.commons.web;
  */
 public class UrlContents {
 
-    public static final String CUSTOMER_TEST_CUSTOMER = "/CustomerController/testCustomerController";
     public static final String CUSTOMER_TEST_PAGE = "/CustomerController/testPage";
+    public static final String CUSTOMER_TEST_CUSTOMER = "/CustomerController/testCustomerController";
 
     public static final String MYTEST_GET = "/MyTestController/get";
     public static final String MYTEST_ADD = "/MyTestController/add";

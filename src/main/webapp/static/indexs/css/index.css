@@ -5,10 +5,11 @@ html, body {
     padding: 0;
 }
 
-.main {
-    width: 100%;
-    height: 50%;
-    background-color: #000000;
-    position: absolute;
-    bottom: 0;
+.all-page {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.all-page a {
+    text-decoration: none;
 }
