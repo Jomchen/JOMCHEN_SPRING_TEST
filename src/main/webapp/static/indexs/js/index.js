@@ -116,3 +116,20 @@ $(function() {
         stompClient.send("/app/stomp/handle00", {}, JSON.stringify(sendData));
     });
 });*/
+
+$(function() {
+    navigationEvent();
+});
+
+/**
+ * 导航栏事件
+ */
+function navigationEvent() {
+    $("a[class='title']").click(function() {
+        $(this).parent(".title_li")
+            .siblings(".title_li")
+            .find(".content")
+            .slideUp(300);
+        $(this).siblings(".content").slideToggle(300);
+    });
+}
