@@ -11,6 +11,7 @@ html,body {
     margin-top: 10em;
     margin-left: 10em;
 }
+
 .anniu > button {
     color: #000000;
     font-size: 1em;
@@ -24,7 +25,6 @@ html,body {
     padding: .8em 1.4em;
     background-color: #ff0000;
 }
-
 .anniu > span {
     white-space: nowrap;
     text-align: center;
@@ -36,7 +36,20 @@ html,body {
     position: absolute;
     bottom: 180%;
     left: 180%;
+    visibility: hidden;
+    opacity: 0;
+
+    -webkit-transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
+    -moz-transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
+    -ms-transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
+    -o-transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
 }
+.anniu:hover  > span {
+    visibility: visible;
+    opacity: 1;
+}
+
 .anniu > span:before {
     content: "";
     border-style: solid;
@@ -46,6 +59,10 @@ html,body {
     right: 100%;
     top: 50%;
     -webkit-transform: translateX(-0.5em);
+    -moz-transform: translateX(-0.5em);
+    -ms-transform: translateX(-0.5em);
+    -o-transform: translateX(-0.5em);
+    transform: translateX(-0.5em);
 }
 .anniu > span:after {
     content: "";
@@ -56,4 +73,8 @@ html,body {
     right: 100%;
     top: 50%;
     -webkit-transform: translate(-0.5em, 1em);
+    -moz-transform: translate(-0.5em, 1em);
+    -ms-transform: translate(-0.5em, 1em);
+    -o-transform: translate(-0.5em, 1em);
+    transform: translate(-0.5em, 1em);
 }
