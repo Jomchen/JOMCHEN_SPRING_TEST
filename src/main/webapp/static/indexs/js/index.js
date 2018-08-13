@@ -79,7 +79,7 @@ $(function() {
 });*/
 
 /* --------------------------------- 对于 STOMP --------------------------- */
-var sockjs = new SockJS("/my_stomp_socket");
+/*var sockjs = new SockJS("/my_stomp_socket");
 sockjs.onopen = function() {
     console.log("stompClient 打开了链接。。。")
 };
@@ -115,4 +115,21 @@ $(function() {
         var sendData = {"cname": data};
         stompClient.send("/app/stomp/handle00", {}, JSON.stringify(sendData));
     });
+});*/
+
+$(function() {
+    navigationEvent();
 });
+
+/**
+ * 导航栏事件
+ */
+function navigationEvent() {
+    $("a[class='title']").click(function() {
+        $(this).parent(".title_li")
+            .siblings(".title_li")
+            .find(".content")
+            .slideUp(300);
+        $(this).siblings(".content").slideToggle(300);
+    });
+}
