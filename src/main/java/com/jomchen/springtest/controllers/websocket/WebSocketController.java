@@ -2,8 +2,10 @@ package com.jomchen.springtest.controllers.websocket;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jomchen.springtest.entity.basedata.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.stereotype.Controller;
@@ -20,8 +22,11 @@ import static com.jomchen.springtest.commons.web.UrlContents.*;
  */
 @Controller
 public class WebSocketController {
-    /**
 
+    @Autowired
+    private SimpMessagingTemplate simpMessagingTemplate;
+
+    /**
      * 到 websocket00 页面
      */
     @RequestMapping(value = WEBSOCKET_TEST00, method = RequestMethod.GET)
@@ -84,13 +89,22 @@ public class WebSocketController {
     }
 
     /**
-     * websocket00 的指定发送
+     * websocket00 的对自己发送
      */
-    @MessageMapping("/stomp/handleRequest00ToUser")
+    @MessageMapping("/stomp/handleRequest00ToItself")
     @SendToUser("/queue/notifications")
-    public String handleRequest00ToUser(Customer customer) {
+    public String handleRequest00ToItself(Customer customer) {
         System.out.println("websocket00ToUser 服务端接收到了消息: " + JSONObject.toJSONString(customer));
         return JSONObject.toJSONString(customer);
+    }
+
+    /**
+     * websocket00 对指定用户发送信息
+     */
+    @MessageMapping("/stomp/handleRequest00ToUser")
+    public void handleRequest00ToUser(Customer customer) {
+        System.out.println("handleRequest00ToUser 服务端接收到消息为：" + JSONObject.toJSONString(customer));
+        simpMessagingTemplate.convertAndSendToUser(customer.getCname(), "/queue/notifications", customer.getAddress());
     }
 
     /**

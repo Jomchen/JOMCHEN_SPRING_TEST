@@ -35,9 +35,14 @@ $(function () {
         stompClient.send("/app/stomp/handle00", {}, JSON.stringify(sendData));
     });
 
-    $(".websocket_to_user").click(function() {
-        var data = prompt("您要指定发送的信息为：", "zhidingMessage");
+    $(".handleRequest00ToItself").click(function() {
+        var data = prompt("您要对自己发送的信息为：", "zhidingMessage");
         var sendData = {"cname": data};
+        stompClient.send("/app/stomp/handleRequest00ToItself", {}, JSON.stringify(sendData));
+    });
+    $(".handleRequest00ToUser").click(function() {
+        var data = prompt("您要对指定用户发送的用户：", "zhidingMessage");
+        var sendData = {"cname": data, "address": "这是指的信息"};
         stompClient.send("/app/stomp/handleRequest00ToUser", {}, JSON.stringify(sendData));
     });
 

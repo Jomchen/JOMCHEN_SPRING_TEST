@@ -1,5 +1,5 @@
 var stompClient;
-var hearders = {"name": "websocekt01", "password": "websocket01"};
+var hearders = {"name": "websocket01", "password": "websocket01"};
 
 $(function () {
     $(".connect_websocket").click(function() {
