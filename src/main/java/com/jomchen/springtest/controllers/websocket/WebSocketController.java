@@ -20,17 +20,9 @@ import static com.jomchen.springtest.commons.web.UrlContents.*;
  */
 @Controller
 public class WebSocketController {
-
-    /* ----- 未处理的问题 -----
-
-    1. websocket 上传如果有中文的情况会报错
-    2. 页面的编码未设成 utf-8 编码
-
-    ----------------------- */
-
     /**
+
      * 到 websocket00 页面
-     * @return
      */
     @RequestMapping(value = WEBSOCKET_TEST00, method = RequestMethod.GET)
     public String websocket00() {

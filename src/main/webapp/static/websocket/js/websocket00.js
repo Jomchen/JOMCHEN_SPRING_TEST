@@ -1,25 +1,34 @@
-var sockJsClient = new SockJS("/my_stomp_socket");
-var stompClient = Stomp.over(sockJsClient);
-stompClient.connect(
-    {},
-    function(frame) {
-        console.log("websocket00 连接打开了。。。" + frame);
-        stompClient.subscribe("/topic/subscript00", function(data) {
-            $(".text_content").append("<p>/topic/subscript00 接到信息为：" + data.body + "</p>");
-        });
-        stompClient.subscribe("/user/queue/notifications", function(data) {
-            $(".text_content").append("<p>websocket00 /user/queue/notifications 接到信息为：" + data.body + "</p>");
-        });
-        stompClient.subscribe("/app/jomchen", function(data) {
-            $(".text_content").append("<p>/app/jomchen 接到信息为：" + data.body + "</p>");
-        });
-    },
-    function(frame) {
-        console.log("websocket00 连接断开了。。。" + frame);
-    }
-);
+var stompClient;
+var hearders = {"name": "websocket00", "password": "websocket00"};
 
 $(function () {
+    $(".connect_websocket").click(function() {
+        var sockJsClient = new SockJS("/my_stomp_socket");
+        stompClient = Stomp.over(sockJsClient);
+        stompClient.connect(
+            hearders,
+            function(frame) {
+                console.log("websocket00 连接打开了。。。" + frame);
+                stompClient.subscribe("/topic/subscript00", function(data) {
+                    $(".text_content").append("<p>/topic/subscript00 接到信息为：" + data.body + "</p>");
+                });
+                stompClient.subscribe("/user/queue/notifications", function(data) {
+                    $(".text_content").append("<p>websocket00 /user/queue/notifications 接到信息为：" + data.body + "</p>");
+                });
+                stompClient.subscribe("/app/jomchen", function(data) {
+                    $(".text_content").append("<p>/app/jomchen 接到信息为：" + data.body + "</p>");
+                });
+            },
+            function(frame) {
+                console.log("websocket00 连接断开了。。。" + frame);
+            }
+        );
+    });
+    $(".close_websocket").click(function() {
+        if (null != stompClient) {
+            stompClient.disconnect();
+        }
+    });
     $(".websocket_anniu").click(function() {
         var data = prompt("您要传的信息为：", "websocket00");
         var sendData = {"cname": data};

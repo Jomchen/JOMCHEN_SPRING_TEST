@@ -17,7 +17,7 @@ html,body {
     font-size: 1em;
     font-style: normal;
     font-weight: bold;
-    font-family: Ubuntu;
+    font-family: times;
     width: 100%;
     border: none;
     cursor: pointer;
@@ -36,17 +36,17 @@ html,body {
     position: absolute;
     bottom: 180%;
     left: 180%;
-    visibility: hidden;
+    /*visibility: hidden;*/
     opacity: 0;
 
-    -webkit-transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
-    -moz-transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
-    -ms-transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
-    -o-transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
-    transition: opacity 2s ease-in-out, opacity 2s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
 }
 .anniu:hover  > span {
-    visibility: visible;
+    /*visibility: visible;*/
     opacity: 1;
 }
 
