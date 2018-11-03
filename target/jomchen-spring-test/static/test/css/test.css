@@ -1,0 +1,75 @@
+
+
+.anniu {
+    width: 90px;
+    position: relative;
+    margin-top: 10em;
+    margin-left: 10em;
+}
+
+.anniu > button {
+    color: #000000;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: bold;
+    font-family: times;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: .7em;
+    padding: .8em 1.4em;
+    background-color: #ff0000;
+}
+.anniu > span {
+    white-space: nowrap;
+    text-align: center;
+    line-height: 4em;
+    display: block;
+    width: 10em;
+    height: 4em;
+    border: .5em #000000 solid;
+    position: absolute;
+    bottom: 180%;
+    left: 180%;
+    /*visibility: hidden;*/
+    opacity: 0;
+
+    -webkit-transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out, opacity 1s ease-in-out;
+}
+.anniu:hover  > span {
+    /*visibility: visible;*/
+    opacity: 1;
+}
+
+.anniu > span:before {
+    content: "";
+    border-style: solid;
+    border-width: 2em 2em;
+    border-color: transparent #000000 #000000 transparent;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    -webkit-transform: translateX(-0.5em);
+    -moz-transform: translateX(-0.5em);
+    -ms-transform: translateX(-0.5em);
+    -o-transform: translateX(-0.5em);
+    transform: translateX(-0.5em);
+}
+.anniu > span:after {
+    content: "";
+    border-style: solid;
+    border-width: 1.5em 2em;
+    border-color: transparent #ffffff #ffffff transparent;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    -webkit-transform: translate(-0.5em, 1em);
+    -moz-transform: translate(-0.5em, 1em);
+    -ms-transform: translate(-0.5em, 1em);
+    -o-transform: translate(-0.5em, 1em);
+    transform: translate(-0.5em, 1em);
+}

@@ -17,13 +17,12 @@ window.onload = function() {
     alert(nameFun);
     */
     
+    var top = document.getElementById("top");
     var anniu00 = document.getElementById("anniu00");
     var anniu01 = document.getElementById("anniu01");
     var div00 = document.getElementById("div00");
     document.documentElement.style.overflow="auto";
 
-    
-    /*
     div00.onmousedown = function(e) {
         var event = e || window.event;
         var _this = this;
@@ -38,7 +37,7 @@ window.onload = function() {
             var top  = e.clientY - y;
             if (left < 0) {
                 left = 0;
-            } else if (left > (document.documentElement.clientWidth - _this.offsetWidth)) {
+            } else if(left > (document.documentElement.clientWidth - _this.offsetWidth)) {
                 left = document.documentElement.clientWidth - _this.offsetWidth;
             }
             if (top < 0) {
@@ -56,7 +55,6 @@ window.onload = function() {
             document.onmousemove = null;
         };
     };
-    */
 
     /*div00.onmousedown=function(e) {
         var event = e || window.event;
@@ -79,6 +77,10 @@ window.onload = function() {
     };*/
 
 
+    anniu00.onclick=function() {
+    };
+    anniu01.onclick=function () {
+    };
 };
 
 

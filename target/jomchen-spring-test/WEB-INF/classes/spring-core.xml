@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<context:component-scan base-package="com.jomchen.springtest" />-->
+
+    <!-- 导入了工具配置 -->
+    <import resource="spring-develope.xml"/>
+    <import resource="spring-test.xml"/>
+
+    <!-- 导入信息文件 -->
+    <!-- 如果有多个则用空格 或 分号 或 逗号分隔 -->
+    <!--<context:property-placeholder location="message-develope.properties"/>-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:message-develope.properties</value>
+        </property>
+        <property name="properties">
+            <value>kaifa.com.jomchen.name=LIGANG</value>
+        </property>
+    </bean>
+
+    <!-- 学到 7.4.4 -->
+
+</beans>

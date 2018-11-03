@@ -30,7 +30,7 @@ public class TestController {
 
     @RequestMapping(value = UrlContents.TEST00_AJAX)
     @ResponseBody
-    public Customer test00Ajax(String name) {
+    public Customer test00Ajax(@RequestBody String name) {
         System.out.println(name);
         /*if (null != customer) {
             System.out.println(customer.getCid());
